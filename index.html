@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Yasar's Portfolio</title>
+    <link rel="icon" href="images/icon.png" type="image">
+
+    <style>
+
+        /* Media query for devices with max width of 768px (tablets and smaller) */
+        @media (max-width: 768px) {
+            
+            /* home section responsive design css--------------------------------------------------------------------------------------------------- */
+
+            #home{
+                display: flex;
+                flex-direction: column-reverse !important;
+                width: 100% !important;
+                text-align: center !important;
+            }
+
+            #home-text a{
+                background-color: rgb(55, 54, 54) !important;
+                width: 50px !important;
+                font-size: medium !important;
+                margin-top: 20px !important;
+            }
+
+            #home-text p{
+                width: 100% !important;
+            }
+
+            html, body {
+                overflow-x: hidden;
+            }
+
+            #minor{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+            }            
+
+            .minor-project-1-a img{
+                width: 100% !important;
+                height: 180px !important;
+            }
+
+            .minor-project-1-a{
+                width: 350px !important;
+                margin-right: 90px !important;
+                display: flex;
+                justify-content: center;
+            }
+
+            #minor-hr{
+                width: 350px !important;
+            }
+
+            .minor-project-1-span{
+                margin-bottom: 20px;
+                /* width: 550px !important; */
+            }
+
+            .minor-project-p2{
+                width: 350px !important;
+                margin-top: 19px;
+                margin-bottom: 30px !important;
+                line-height: 1 !important;
+            }
+
+            #minor-project-p1{
+                margin-top: 30px;
+            }
+
+            #minor-project-p0{
+                width: 100% !important;
+            }
+
+            /* major project part css for responsive----------------------------------------------------------------------------------------- */
+
+            #mp{
+                margin-top: -40px;
+            }
+
+            .major-responsive-a_img a{
+
+                width: 390px !important;
+                display: flex !important;
+                align-items: center !important;
+            }
+
+            .major-even{
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: column-reverse !important;
+            }
+
+            .major-odd{
+                display: flex !important;
+                flex-direction: column !important;
+            }
+
+            .major-whole hr{
+                width: 96% !important;
+                margin-top: -15px !important;
+            }
+            
+            .major-whole{
+                width: 100% !important;
+                margin-left : 0px !important;
+                margin-top: -19px;
+            }
+
+            .major-whole img{
+                width: 90% !important;
+                height: 180px !important;
+                margin-left: 20px !important;
+            }
+
+            .major-even-text{
+                margin-left: -29px !important;
+                margin-bottom: 20px !important;
+            }
+
+            .major-odd-text{
+                margin-left: 20px !important;
+                margin-bottom: 20px !important;
+            }
+
+            .major-text-a{
+                display: flex !important;
+                width: 190px !important;
+                justify-content: space-between !important;
+            }
+
+            .major-text-a a{
+                height: 35px !important;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                border-radius: 10px !important;
+            }
+
+            .major-text-p2{
+                width: 95% !important;
+            }
+
+            .major-text-p0{
+                width: 75% !important;
+            }
+
+            /* Skill past responsive css------------------------------------------------------------------------------------------------------------------- */
+
+            .skill-all {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important; /* Two columns for larger screens */
+                align-items: center !important;
+                gap: 20px; /* Add spacing between cards */
+                margin-right: 40px;
+            }
+
+            .skill-all img{
+                width: 40px !important;
+                height: 40px !important;
+            }
+
+            .skill-all div{
+                padding: 1px 1px 10px 5px !important;
+                margin: 1px 1px 10px 5px !important;
+            }
+
+            .skill-p1{
+                width: 60% !important;
+            }
+
+            .navbar-tags{
+                display: none !important;
+            }
+
+            /* navbar responsive css----------------------------------------------------------------------------------------------------------------- */
+
+            #nav-bar{
+                display: flex !important;
+                justify-content: center !important;
+                width: 250px !important;
+                margin-top: 10px;
+                border-radius: 50px !important;
+
+            }
+
+            .navbar-socials{
+                margin-right: 50px;
+            }
+        }
+
+        .major-text-a{
+                display: flex !important;
+                width: 190px !important;
+                justify-content: space-between !important;
+            }
+
+            .major-text-a a{
+                height: 35px !important;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                border-radius: 10px !important;
+                color: #ffffff !important;
+            }
+
+        /* Add hover effect for all anchor tags */
+        a:hover {
+            transform: scale(1.1); /* Slightly enlarge the element */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+        }
+
+        /* Add hover effect for all buttons */
+        button:hover {
+            transform: scale(1.1); /* Slightly enlarge the button */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+        }
+
+        .icons:hover{
+            transform: scale(1.2);
+        }
+
+        nav{
+            z-index: 1;
+        }
+
+        .minor-project-1-a{
+            box-shadow: 1px 1px 10px 1px rgb(55, 54, 54);
+            border-radius: 10px;
+        }
+
+        .minor-project-1-a:hover{
+            transform: scale(1.07);
+        }
+
+        .minor-project-1-span a{
+            border-radius: 20px;
+        }
+
+        .minor-project-1-span:hover{
+            transform: scale(0.9);
+        }
+
+        .major-project-img:hover{
+            transform: scale(1.1);
+        }
+
+    </style>
+
+</head>
+<body>    
+
+    <div class="bg-black w-100 d-flex flex-column justify-content-center align-items-center">
+    
+        <!-- NAVBAR -->
+        <nav id="nav-bar" class=" navbar bg-dark d-flex justify-content-center align-items-center mx-5 rounded-bottom" style="height: 75px; position: fixed; top: 0;">
+            <div class="pe-5 d-flex align-items-center navbar-tags">
+                <a class="text-decoration-none ps-5 pe-3 text-white" href="#h">Home</a>
+                <a class="text-decoration-none px-3 text-white" href="#git">Experience</a>
+                <a class="text-decoration-none px-3 text-white" href="#t">Skills</a>
+                <a class="text-decoration-none px-3 text-white" href="#rw">Minor Projects</a>
+                <a class="text-decoration-none px-3 text-white" href="#cs">Major Projects</a>
+            </div>
+
+            <div class="ps-5 d-flex align-items-center navbar-socials">
+                <a class="px-3" href="https://linkedin.com/in/yasar-mansuri-41507024a" target="_blank"><i class="fa-brands fa-linkedin fa-2xl" style="color: #e6e6e6;"></i></a>
+                <a class="px-3" href="https://github.com/Mohammadyasar303" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #fcfcfc;"></i></a>
+                <a class="px-3" href="mailto:yasarmansuri16@gmail.com" target="_blank"><i class="fa-regular fa-envelope fa-2xl" style="color: #ffffff;"></i></a>
+                <!-- <a class="px-2 pe-5" href="https://wa.me/+918200354426" target="_blank"><img class="" src="images/WhatsApp.png" width="30px" alt=""></a> -->
+            </div>
+        </nav>
+        
+        <!-- HOME -->
+        <div id="home" class="text-capitalize w-50 d-flex align-items-center mt-5 mb-5 pb-5">
+            <div id="home-text" class="text-white pt-5">
+                <!-- <p class="fs-1 fw-bolder">Mohammadyasar Mansuri.</p> -->
+                <p class="ms-1"><b class="lh-sm name" style="font-size: xx-large;"><p>Hi, I Am</p> Mohammadyasar Mansuri.</b></br></br> I Am a MERN Developer, For knowing my skills, projects, experience you can go through my Resume or you can check out my rest of the Portfolio.  </p>
+                <a href="https://resume-virid-kappa-66.vercel.app/" download="Mohammadyasar_SD_Resume.pdf" target="_blank" class="text-decoration-none rounded-3 py-2 px-4 m bg-success fs-5 text-white fw-bold">My Resume</a>
+            </div>
+
+            <div id="home-img" class="text-white pt-5">
+                <img src="images/profile.png" style="border-radius: 100%; width: 190px;"> 
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Experience -->
+    <div id="git" class="p-5 d-flex flex-column justify-content-center align-items-center bg-white bg-gradient text-black">
+        <div class="d-flex flex-column align-items-center text-center">
+            <p class="fs-1 fw-bolder mb-4">Experience</p>
+            <p class="fw-light w-75 mb-3">
+                I have worked as a <span class="fw-bold">Software Development Trainee</span> at <span class="fw-bold">Acciojob Pvt Ltd</span>. 
+                Additionally, I have pursued my <span class="fw-bold">Bachelor's in Computer Applications</span> at <span class="fw-bold">Parul University</span>.
+            </p>
+            <p class="fw-light w-75">
+                Feel free to reach out to me using the contact details below or through my social media links.
+            </p>
+        </div>
+
+        <div class="d-flex flex-wrap justify-content-center align-items-center mt-4">
+            <!-- Card 1 -->
+            <div class="card text-dark bg-light m-3" style="width: 18rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                <div class="card-body text-center">
+                    <i class="fa-solid fa-briefcase fa-2x mb-3" style="color: #007bff;"></i>
+                    <h5 class="card-title fw-bold">Software Development Trainee</h5>
+                    <p class="card-text">Acciojob Pvt Ltd.</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <!-- <div class="card text-dark bg-light m-3" style="width: 18rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                <div class="card-body text-center">
+                    <i class="fa-solid fa-graduation-cap fa-2x mb-3" style="color: #28a745;"></i>
+                    <h5 class="card-title fw-bold">Bachelor's in Computer Applications</h5>
+                    <p class="card-text">Parul University</p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- Skills -->
+    <div id="t" class="pb-5 d-flex flex-column justify-content-center align-items-center bg-light text-dark">
+
+        <div class="pt-5 d-flex flex-column justify-content-center align-items-center">
+            <p class="fs-1 fw-bolder">Skills</p>
+            <p class="d-flex justify-content-center w-50 text-center skill-p1">I have knowledge of these web devlopment skills. </p>
+        </div>
+        
+
+        <div class="d-flex justify-content-center align-items-center w-75 flex-wrap skill-all" style="text-align: center; margin-left: 40px;">
+            <div class="shadow p-3 mb-5 rounded mx-5 icons">
+                <p class="fw-bolder">HTML</p>
+                <img class="" src="images/HTML-icon.png" width="100px" height="100px" alt="HTML-icon">
+            </div>
+            
+            <div class="shadow p-3 mb-5 rounded mx-5 icons">
+                <p class="fw-bolder">CSS</p>
+                <img class="" src="images/CSS-icon.png" width="100px" height="100px" alt="CSS-icon">
+            </div>
+
+            <div class="shadow p-3 mb-5 rounded mx-5 icons">
+                <p class="fw-bolder">JavaScript</p>
+                <img class="" src="images/JS-icon.png" width="100px" height="100px" alt="JS-icon">
+            </div>
+    
+            <div class="shadow p-3 mb-5 rounded mx-5 icons">
+                <p class="fw-bolder">React JS</p>
+                <img class="" src="images/React-icon.png" width="120px" height="100px" alt="React-icon">
+            </div>
+
+            <div class="shadow p-3 mb-5 rounded mx-5 icons">
+                <p class="fw-bolder">Bootstrap</p>
+                <img class="" src="images/Bootstap-icon.png" width="130px" height="100px" alt="React-icon">
+            </div>     
+            
+            <div class="shadow p-3 mb-5 rounded mx-5 icons">
+                <p class="fw-bolder">Node.js</p>
+                <img class="" src="images/nodeJS-icon.png" width="130px" height="100px" alt="React-icon">
+            </div>
+
+            <div class="shadow p-3 mb-5 rounded mx-5 icons">
+                <p class="fw-bolder">mongoDB</p>
+                <img class="" src="images/MongoDB-icon.png" width="130px" height="100px" alt="React-icon">
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- Major Projects -->
+    <div id="cs major-projects" class="pt-5 w-100 bg-black text-white d-flex justify-content-center align-items-center flex-column">
+
+        <div class="d-flex text-capitalize flex-column justify-content-center align-items-center">
+            <p class="fs-1 text-center fw-bolder">Major Projects</p>
+            <p class="d-flex justify-content-center w-50 text-center major-text-p0">I have created some Major Projects with my knowledge of web devlopment skills, which are.. </p>    
+        </div>    
+
+        <div id="mp" class="pt-5  pb-5 w-50 d-flex justify-content-evenly align-items-center major-whole major-odd">
+            <div class="major-odd-text">
+                <!-- <span class="p-1 me-5 rounded-3">Project-1</span> -->
+                <p class="fs-2">YouTube Clone</p><hr style="width: 300px;">
+                <p class="w-75 major-text-p2">It is a YouTube Clone using Asynchrounus & DOM JavaScript, HTML, CSS & Google Console APIs. </p>
+                
+                <div class="major-text-a">
+                    <a class="border border-black text-decoration-none text-black p-2" href="https://you-tube-clone-five-opal.vercel.app/" target="_blank" style="border-radius: 20px; background-color: red;">Check it out</a><br><br>
+                    <a href="https://youtube.com/" target="_blank" style="padding: 5px; border-radius: 20px; background-color: red; text-decoration: none;">Reference</a>
+                </div>
+                
+            </div>
+
+            <div>
+                <a href="https://you-tube-clone-five-opal.vercel.app/" target="_blank"><img class="major-project-img" src="images/major-project-5.png" width="420px" alt="" style="box-shadow: 1px 1px 10px 1px whitesmoke; border-radius: 10px;"></a>
+            </div>
+        </div><hr style="width: 760px;">
+
+        <div id="mp" class="pt-5 w-50 d-flex justify-content-evenly align-items-center major-whole major-even">
+            <div>
+                <a href="https://google-sheet-clone-six.vercel.app/" target="_blank"><img class="major-project-img" src="images/major-project-4.png" width="400px" alt="responsive-img" style="box-shadow: 1px 1px 10px 1px whitesmoke; border-radius: 10px;"></a>
+            </div>
+
+            <div class="ps-5 major-even-text">
+                <!-- <span class="p-1 rounded-3 bg-primary">Project-2</span> -->
+                <p class="fs-2">Google Sheet Clone</p><hr>
+                <p class="w-75 major-text-p2">It is a Google Sheet Clone using JavaScript DOM, HTML, CSS.</p>
+                
+                <div class="major-text-a">
+                    <a class="border border-black text-decoration-none text-black p-2" href="https://google-sheet-clone-six.vercel.app/" target="_blank" style="border-radius: 20px; background-color: #007bff;">Check it out</a><br><br>
+                    <a href="https://docs.google.com/spreadsheets/d/10fp30vp1JytmrGz7rnXX8d5xOCSmD-v5hQ4N3eFBcxs/edit?gid=0#gid=0" target="_blank" style="padding: 5px; border-radius: 20px; background-color: #007bff; text-decoration: none;">Reference</a>
+                </div>
+                
+            </div>
+        </div><hr style="width: 760px;">
+
+        <div id="mp" class="pt-5  pb-5 w-50 d-flex justify-content-evenly align-items-center major-whole major-odd">
+            <div class="major-odd-text">
+                <!-- <span class="p-1 me-5 rounded-3 bg-success">Project-3</span> -->
+                <p class="fs-2">Blinkit Clone</p><hr style="width: 300px;">
+                <p class="w-75 major-text-p2">It is a Blinkit Clone using HTML for Structure & Bootstrap and little bit inline CSS. </p>
+                
+                <div class="major-text-a">
+                    <a class="border border-black text-decoration-none text-black p-2" href="https://blinkit-clone-teal.vercel.app/" target="_blank" style="border-radius: 20px; background-color: yellowgreen;">Check it out</a><br><br>
+                    <a href="https://blinkit.com/" target="_blank" style="padding: 5px; border-radius: 20px; background-color: yellowgreen; text-decoration: none;">Reference</a>
+                </div>
+                
+            </div>
+
+            <div>
+                <a href="https://blinkit-clone-teal.vercel.app/" target="_blank"><img class="major-project-img" src="images/major-project-3.png" width="420px" alt="" style="box-shadow: 1px 1px 10px 1px whitesmoke; border-radius: 10px;"></a>
+            </div>
+        </div><hr style="width: 760px;">
+
+        <div id="mp" class="pt-5 w-50 d-flex justify-content-evenly align-items-center major-whole major-even">
+            <div class="major-responsive-a_img">
+                <a href="https://responsive-web-page-nu.vercel.app/" target="_blank"><img class="major-project-img" src="images/major-project-2.png" width="400px" alt="responsive-img" style="box-shadow: 1px 1px 10px 1px whitesmoke; border-radius: 10px;"></a>
+            </div>
+
+            <div class="ps-5 major-even-text">
+                <!-- <span class="p-1 rounded-3 bg-primary">Project-4</span> -->
+                <p class="fs-2">Responsive Web Page</p><hr>
+                <p class="w-75 major-text-p2">It is a Responsive Web Page for Mobile, Tablet using HTML and CSS-Media Query.</p>
+                
+                <div class="major-text-a">
+                    <a class="border border-black text-decoration-none text-black p-2" href="https://responsive-web-page-nu.vercel.app/" target="_blank" style="border-radius: 20px; background-color: saddlebrown;">Check it out</a><br><br>
+                    <a href="https://www.figma.com/design/EJG7TkLezxUaSHTgi2fqIr/F1---Monthly-Test?node-id=2-6&t=MSSLAf7octUUf0BU-0" target="_blank" style="padding: 5px; border-radius: 20px; background-color: saddlebrown; text-decoration: none;">Reference</a>    
+                </div>
+                
+            </div>
+        </div><hr style="width: 760px;">
+
+        <div id="mp" class="pt-5 mb-5 w-50 d-flex justify-content-evenly align-items-center major-project-1-div major-whole major-odd">
+            <div class="major-odd-text">
+                <!-- <span class="p-1 rounded-3 text-black major-project-1-span" style="background-color: rgb(31, 133, 13);">Project-5</span> -->
+                <p class="fs-2">Spotify Clone.</p><hr style="width: 360px;">
+                <p class="w-75 major-text-p2">It is a basic spotify UI for Home Page & Liked Songs Page Using HTML, CSS.</p>
+                
+                <div class="major-text-a">
+                    <a class="border border-black text-decoration-none p-2" href="https://spotify-clone-liard-kappa.vercel.app/" target="_blank" style="border-radius: 20px; background-color: green; color: #ffffff;">Check it out</a><br><br>
+                    <a class="major-project-1-a2" href="https://www.figma.com/design/EBhnjMShbYAgpeGweiW1m3/Spotify-Clone?node-id=8-293&t=uPRTKBCgKo7iVaKQ-0" target="_blank" style="padding: 5px; border-radius: 20px; background-color: green; text-decoration: none; color: #ffffff;">Reference</a>    
+                </div>
+                
+            </div>
+
+            <div>
+                <a href="https://spotify-clone-liard-kappa.vercel.app/" target="_blank"><img class="major-project-img" src="images/major-project-1.png" width="400px" alt="spotify-clone"  style="box-shadow: 1px 1px 10px 1px whitesmoke; border-radius: 10px;"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Minor Projects -->
+    <div id="rw" class="p-5 d-flex align-items-center justify-content-center flex-column">
+        
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <p class="fs-1 fw-bolder">Minor Projects</p>
+            <p id="minor-project-p0" class="w-50 text-center">I have created some Minor Projects with my knowledge of web devlopment skills, which are..</p>
+        </div>
+
+        <div id="minor" class="d-flex align-items-center justify-content-evenly text-start w-75" style="margin-left: 90px;">
+            <div class="d-flex flex-column justify-content-center ">
+                <p class="fs-1 fw-bolder">Otarea Educore Clone</p><hr id="minor-hr" style="margin-top: -12px;">
+                <a class="minor-project-1-a" style="width: 400px;" href="https://otarea-educore-clone.netlify.app/" target="_blank">
+                    <img src="images/otarea-sitepage.png" style="width: 400px; height: 210px; border-radius: 12px;" alt="otarea-sitepage">
+                </a>
+                <p class="minor-project-p2" style="line-height: 3;">It is a Basic Page of Otarea Educore using HTML, CSS.</p>
+                <span class="minor-project-1-span" style="width: 116px; line-height: 0;"><a class="bg-success p-2 text-white text-decoration-none" href="https://otarea-educore-clone.netlify.app/" target="_blank" style="border-radius: 10px;">Check it out</a></span>
+            </div>
+
+            <div class="d-flex flex-column justify-content-between">
+                <p id="minor-project-p1" class="fs-1 fw-bolder">Portfolio Using Bootstrap.</p><hr id="minor-hr" style="margin-top: -12px;">
+                <a class="minor-project-1-a" style="width: 400px;" href="https://bootstrap-portfolio-gray.vercel.app/" target="_blank">
+                    <img src="images/minor-project-2-icon.png" style="width: 400px; height: 210px; border-radius: 12px;"  alt="otarea-sitepage">
+                </a>
+                <p class="minor-project-p2" style="line-height: 3;">It is a Basic Portfolio Using HTML & Bootstrap.</p>
+                <span class="minor-project-1-span" style="width: 116px; line-height: 0;"><a class="bg-success p-2 text-white text-decoration-none" href="https://bootstrap-portfolio-gray.vercel.app/" target="_blank" style="border-radius: 10px;">Check it out</a></span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Contact Me -->
+
+    <div class="text-center py-5 bg-black text-white">
+        <p class="fs-5 mb-3">Contact Me:</p>
+        <div class="d-flex justify-content-center">
+            <a class="px-3" href="mailto:yasarmansuri16@gmail.com" target="_blank">
+                <i class="fa-regular fa-envelope fa-2x" style="color: #ffffff;"></i>
+            </a>
+            <a class="px-3" href="https://linkedin.com/in/yasar-mansuri-41507024a" target="_blank">
+                <i class="fa-brands fa-linkedin fa-2x" style="color: #0077b5;"></i>
+            </a>
+            <a class="px-3" href="https://github.com/Mohammadyasar303" target="_blank">
+                <i class="fa-brands fa-github fa-2x" style="color: #ffffff;"></i>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
