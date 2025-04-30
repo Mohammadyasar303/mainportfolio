@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Yasar's Portfolio</title>
+    <link rel="icon" href="images/icon.png" type="image">
+
+    <style>
+        :root {
+            --primary-color: #191919;
+            --secondary-color: #2D4263;
+            --accent-color: #C84B31;
+            --light-color: #ECDBBA;
+            --text-color: #333;
+            --white-color: #fff;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition-default: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            color: var(--text-color);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        .navbar {
+            transition: var(--transition-default);
+            padding: 1rem;
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+        }
+
+        .navbar-glass {
+            background-color: rgba(25, 25, 25, 0.9);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-links a {
+            color: var(--white-color);
+            margin: 0 1rem;
+            font-weight: 500;
+            position: relative;
+            text-decoration: none;
+        }
+
+        .navbar-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+
+        .navbar-links a:hover::after {
+            width: 100%;
+        }
+
+        .navbar-socials a {
+            transition: var(--transition-default);
+            margin: 0 0.8rem;
+        }
+
+        .navbar-socials a:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            display: flex;
+            align-items: center;
+            color: var(--white-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .hero-img {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-img img {
+            border-radius: 50%;
+            border: 5px solid var(--accent-color);
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            transition: var(--transition-default);
+            max-width: 250px;
+        }
+
+        .hero-img img:hover {
+            transform: scale(1.05);
+        }
+
+        .hero-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+            z-index: 1;
+        }
+
+        .hero-shapes div {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--accent-color);
+            opacity: 0.2;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary-custom {
+            background-color: var(--accent-color);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: var(--transition-default);
+            text-decoration: none;
+            color: var(--white-color);
+            display: inline-block;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(200, 75, 49, 0.4);
+        }
+
+        /* Section Styling */
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 3rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--accent-color);
+            bottom: -10px;
+            left: 25%;
+        }
+
+        /* Experience Section */
+        .experience-section {
+            background-color: var(--light-color);
+            padding: 6rem 0;
+        }
+
+        .experience-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition-default);
+            border: none;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .experience-card i {
+            color: var(--accent-color);
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: 6rem 0;
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+        }
+
+        .skill-item {
+            background-color: var(--white-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition-default);
+            margin: 1rem;
+            width: 160px;
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-10px) rotateY(10deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+            transition: var(--transition-default);
+        }
+
+        .skill-item:hover img {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        /* Projects Section */
+        .projects-section {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            padding: 6rem 0;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(45, 66, 99, 0.6) 0%, rgba(25, 25, 25, 0.8) 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 3rem;
+            transition: var(--transition-default);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-img {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-default);
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.05);
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h3 {
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-btn {
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            transition: var(--transition-default);
+        }
+
+        .view-btn {
+            background-color: var(--accent-color);
+            color: var(--white-color);
+        }
+
+        .ref-btn {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white-color);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .view-btn:hover, .ref-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Minor Projects */
+        .minor-projects-section {
+            padding: 6rem 0;
+            background-color: var(--light-color);
+        }
+
+        .minor-project-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            background-color: var(--white-color);
+            transition: var(--transition-default);
+            height: 100%;
+        }
+
+        .minor-project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .minor-project-img {
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .minor-project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-default);
+        }
+
+        .minor-project-card:hover .minor-project-img img {
+            transform: scale(1.05);
+        }
+
+        .minor-project-info {
+            padding: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-social a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin: 0 0.5rem;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition-default);
+        }
+
+        .footer-social a:hover {
+            transform: translateY(-5px);
+            background-color: var(--accent-color);
+        }
+
+        .footer p {
+            margin-top: 2rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .project-card {
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-links {
+                display: none;
+            }
+            
+            .hero-section {
+                padding: 100px 0 50px;
+                text-align: center;
+            }
+            
+            .hero-content {
+                flex-direction: column-reverse;
+            }
+            
+            .hero-img {
+                margin-bottom: 2rem;
+            }
+            
+            .hero-text {
+                text-align: center;
+            }
+            
+            .skill-item {
+                width: 130px;
+                height: 130px;
+            }
+            
+            .skill-item img {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .project-card {
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .skill-item {
+                width: 100px;
+                height: 100px;
+                margin: 0.5rem;
+            }
+            
+            .skill-item img {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .project-img {
+                height: 180px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-glass fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-white fw-bold" href="#">Yasar</a>
+            
+            <div class="navbar-links d-none d-md-flex">
+                <a href="#home">Home</a>
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="#major-projects">Major Projects</a>
+                <a href="#minor-projects">Minor Projects</a>
+            </div>
+            
+            <div class="navbar-socials">
+                <a href="https://linkedin.com/in/yasar-mansuri-41507024a" target="_blank">
+                    <i class="fa-brands fa-linkedin fa-lg" style="color: #e6e6e6;"></i>
+                </a>
+                <a href="https://github.com/Mohammadyasar303" target="_blank">
+                    <i class="fa-brands fa-github fa-lg" style="color: #fcfcfc;"></i>
+                </a>
+                <a href="mailto:yasarmansuri16@gmail.com" target="_blank">
+                    <i class="fa-regular fa-envelope fa-lg" style="color: #ffffff;"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-shapes">
+            <div style="width: 100px; height: 100px; top: 10%; left: 10%; animation: fadeInUp 1s ease;"></div>
+            <div style="width: 50px; height: 50px; top: 20%; right: 20%; animation: fadeInUp 1.2s ease;"></div>
+            <div style="width: 150px; height: 150px; bottom: 15%; left: 30%; animation: fadeInUp 1.4s ease;"></div>
+            <div style="width: 80px; height: 80px; bottom: 10%; right: 10%; animation: fadeInUp 1.6s ease;"></div>
+        </div>
+        
+        <div class="container">
+            <div class="row align-items-center hero-content">
+                <div class="col-lg-7 hero-text animate-fadeInUp">
+                    <h1 class="mb-4">Hi, I'm Mohammadyasar Mansuri</h1>
+                    <p class="mb-4">I am a MERN Stack Developer passionate about creating engaging web experiences. Explore my skills, projects, and experience to learn more about my journey in web development.</p>
+                    <a href="https://resume-virid-kappa-66.vercel.app/" download="Mohammadyasar_SD_Resume.pdf" target="_blank" class="btn-primary-custom">
+                        <i class="fa-solid fa-download me-2"></i> Download Resume
+                    </a>
+                </div>
+                
+                <div class="col-lg-5 hero-img text-center animate-fadeInUp">
+                    <img src="images/profile.png" alt="Yasar's Profile" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title fs-1">My Experience</h2>
+                <p class="text-muted w-75 mx-auto">My professional journey in the world of web development and technology.</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="experience-card h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fa-solid fa-briefcase fa-3x mb-4"></i>
+                            <h3 class="card-title fs-4 fw-bold mb-3">Software Development Trainee</h3>
+                            <p class="card-text text-muted mb-2">Acciojob Pvt Ltd.</p>
+                            <div class="mt-3 pt-3 border-top">
+                                <p class="mb-0">Gained hands-on experience developing web applications using the MERN stack, collaborating with teams to deliver quality solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="experience-card h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fa-solid fa-graduation-cap fa-3x mb-4"></i>
+                            <h3 class="card-title fs-4 fw-bold mb-3">Bachelor's in Computer Applications</h3>
+                            <p class="card-text text-muted mb-2">Parul University</p>
+                            <div class="mt-3 pt-3 border-top">
+                                <p class="mb-0">Learned fundamental computer science concepts, programming languages, and software development methodologies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title fs-1">My Skills</h2>
+                <p class="text-muted w-75 mx-auto">Technologies and tools I've mastered throughout my web development journey.</p>
+            </div>
+            
+            <div class="d-flex flex-wrap justify-content-center">
+                <div class="skill-item">
+                    <img src="images/HTML-icon.png" alt="HTML">
+                    <h5 class="fw-bold">HTML</h5>
+                </div>
+                
+                <div class="skill-item">
+                    <img src="images/CSS-icon.png" alt="CSS">
+                    <h5 class="fw-bold">CSS</h5>
+                </div>
+                
+                <div class="skill-item">
+                    <img src="images/JS-icon.png" alt="JavaScript">
+                    <h5 class="fw-bold">JavaScript</h5>
+                </div>
+                
+                <div class="skill-item">
+                    <img src="images/React-icon.png" alt="React">
+                    <h5 class="fw-bold">React JS</h5>
+                </div>
+                
+                <div class="skill-item">
+                    <img src="images/Bootstap-icon.png" alt="Bootstrap">
+                    <h5 class="fw-bold">Bootstrap</h5>
+                </div>
+                
+                <div class="skill-item">
+                    <img src="images/nodeJS-icon.png" alt="Node.js">
+                    <h5 class="fw-bold">Node.js</h5>
+                </div>
+                
+                <div class="skill-item">
+                    <img src="images/MongoDB-icon.png" alt="MongoDB">
+                    <h5 class="fw-bold">MongoDB</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Major Projects Section -->
+    <section id="major-projects" class="projects-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title fs-1">Major Projects</h2>
+                <p class="text-muted w-75 mx-auto">Showcasing my significant web development projects that demonstrate my skills and creativity.</p>
+            </div>
+            
+            <div class="row">
+                <!-- YouTube Clone -->
+                <div class="col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="images/major-project-5.png" alt="YouTube Clone">
+                        </div>
+                        <div class="project-info">
+                            <h3>YouTube Clone</h3>
+                            <hr>
+                            <p>A comprehensive YouTube Clone built using Asynchronous JavaScript, DOM manipulation, HTML, CSS, and Google Console APIs.</p>
+                            <div class="project-links">
+                                <a href="https://you-tube-clone-five-opal.vercel.app/" target="_blank" class="project-btn view-btn">View Project</a>
+                                <a href="https://youtube.com/" target="_blank" class="project-btn ref-btn">Reference</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Google Sheet Clone -->
+                <div class="col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="images/major-project-4.png" alt="Google Sheet Clone">
+                        </div>
+                        <div class="project-info">
+                            <h3>Google Sheet Clone</h3>
+                            <hr>
+                            <p>A functional Google Sheet clone created with JavaScript DOM manipulation, HTML, and CSS, replicating core spreadsheet functionality.</p>
+                            <div class="project-links">
+                                <a href="https://google-sheet-clone-six.vercel.app/" target="_blank" class="project-btn view-btn">View Project</a>
+                                <a href="https://docs.google.com/spreadsheets/d/10fp30vp1JytmrGz7rnXX8d5xOCSmD-v5hQ4N3eFBcxs/edit?gid=0#gid=0" target="_blank" class="project-btn ref-btn">Reference</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Blinkit Clone -->
+                <div class="col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="images/major-project-3.png" alt="Blinkit Clone">
+                        </div>
+                        <div class="project-info">
+                            <h3>Blinkit Clone</h3>
+                            <hr>
+                            <p>A Blinkit Clone built with HTML for structure and Bootstrap with custom CSS for styling, replicating the popular delivery app interface.</p>
+                            <div class="project-links">
+                                <a href="https://blinkit-clone-teal.vercel.app/" target="_blank" class="project-btn view-btn">View Project</a>
+                                <a href="https://blinkit.com/" target="_blank" class="project-btn ref-btn">Reference</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Responsive Web Page -->
+                <div class="col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="images/major-project-2.png" alt="Responsive Web Page">
+                        </div>
+                        <div class="project-info">
+                            <h3>Responsive Web Page</h3>
+                            <hr>
+                            <p>A fully responsive web page designed for multiple devices using HTML and CSS Media Queries to ensure optimal viewing on all screen sizes.</p>
+                            <div class="project-links">
+                                <a href="https://responsive-web-page-nu.vercel.app/" target="_blank" class="project-btn view-btn">View Project</a>
+                                <a href="https://www.figma.com/design/EJG7TkLezxUaSHTgi2fqIr/F1---Monthly-Test?node-id=2-6&t=MSSLAf7octUUf0BU-0" target="_blank" class="project-btn ref-btn">Reference</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Spotify Clone -->
+                <div class="col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="images/major-project-1.png" alt="Spotify Clone">
+                        </div>
+                        <div class="project-info">
+                            <h3>Spotify Clone</h3>
+                            <hr>
+                            <p>A Spotify UI clone featuring Home Page and Liked Songs Page, built using HTML and CSS to replicate the streaming service's interface.</p>
+                            <div class="project-links">
+                                <a href="https://spotify-clone-liard-kappa.vercel.app/" target="_blank" class="project-btn view-btn">View Project</a>
+                                <a href="https://www.figma.com/design/EBhnjMShbYAgpeGweiW1m3/Spotify-Clone?node-id=8-293&t=uPRTKBCgKo7iVaKQ-0" target="_blank" class="project-btn ref-btn">Reference</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Minor Projects Section -->
+    <section id="minor-projects" class="minor-projects-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title fs-1">Minor Projects</h2>
+                <p class="text-muted w-75 mx-auto">Additional smaller projects that showcase my range of skills and learning progress.</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="minor-project-card">
+                        <div class="minor-project-img">
+                            <img src="images/otarea-sitepage.png" alt="Otarea Educore Clone">
+                        </div>
+                        <div class="minor-project-info">
+                            <h3 class="fs-4 fw-bold">Otarea Educore Clone</h3>
+                            <hr>
+                            <p>A basic page of Otarea Educore created using HTML and CSS, focused on clean design and structure.</p>
+                            <a href="https://otarea-educore-clone.netlify.app/" target="_blank" class="btn-primary-custom mt-3">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="minor-project-card">
+                        <div class="minor-project-img">
+                            <img src="images/minor-project-2-icon.png" alt="Bootstrap Portfolio">
+                        </div>
+                        <div class="minor-project-info">
+                            <h3 class="fs-4 fw-bold">Portfolio Using Bootstrap</h3>
+                            <hr>
+                            <p>A basic portfolio website built using HTML and Bootstrap, demonstrating responsive design principles.</p>
+                            <a href="https://bootstrap-portfolio-gray.vercel.app/" target="_blank" class="btn-primary-custom mt-3">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <h3 class="mb-4">Get In Touch</h3>
+            
+            <div class="footer-social">
+                <a href="mailto:yasarmansuri16@gmail.com" target="_blank">
+                    <i class="fa-regular fa-envelope" style="color: #ffffff;"></i>
+                </a>
+                <a href="https://linkedin.com/in/yasar-mansuri-41507024a" target="_blank">
+                    <i class="fa-brands fa-linkedin" style="color: #ffffff;"></i>
+                </a>
+                <a href="https://github.com/Mohammadyasar303" target="_blank">
+                    <i class="fa-brands fa-github" style="color: #ffffff;"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
